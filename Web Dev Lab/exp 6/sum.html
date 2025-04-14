@@ -1,0 +1,71 @@
+<html>
+
+<body style="background-color:DBD4D4">
+
+	<div id="form">
+		<form>
+			<h1>Calculate Sum</h1>
+			<input type="input" id="num1" placeholder="Enter first number">
+			<input type="input" id="num2" placeholder="Enter second number">
+			<p>
+				<button type="button" onclick="add()">Add</button>
+				<button type="button" onclick="diff()">Subtract</button>
+				<button type="button" onclick="multiply()">Multiply</button>
+				<button type="button" onclick="div()">Divide</button>
+			<p>
+				<input type="text" id="result">
+		</form>
+
+
+		<script>
+			function add() {
+				let num1 = parseInt(document.querySelector("#num1").value);
+				let num2 = parseInt(document.querySelector("#num2").value);
+				let sum = num1 + num2;
+				document.getElementById("result").value = sum;
+			}
+			function diff() {
+				let num1 = parseInt(document.querySelector("#num1").value);
+				let num2 = parseInt(document.querySelector("#num2").value);
+				let diff = num1 - num2;
+				document.getElementById("result").value = diff;
+			}
+			function multiply() {
+				let num1 = parseInt(document.querySelector("#num1").value);
+				let num2 = parseInt(document.querySelector("#num2").value);
+				let prod = num1 * num2;
+				document.getElementById("result").value = prod;
+			}
+			function div() {
+				let num1 = parseInt(document.querySelector("#num1").value);
+				let num2 = parseInt(document.querySelector("#num2").value);
+				let q = num1 / num2;
+				document.getElementById("result").value = q;
+			}
+		</script>
+
+		<style>
+			div {
+				text-align: center;
+				width: 30%;
+				background-color: EEEEEE;
+				padding: 30px;
+				box-shadow: 4px 4px 25px;
+				margin-left: 33%;
+			}
+
+			#num1 {
+				margin: 2px;
+			}
+
+			#num2 {
+				margin: 2px;
+			}
+
+			button {
+				margin: 12px;
+			}
+		</style>
+</body>
+
+</html>

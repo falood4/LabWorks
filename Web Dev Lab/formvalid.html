@@ -1,0 +1,77 @@
+<html>
+
+<body>
+
+  <form id="myForm" action="formvalid.html">
+    <label for="nameInput" id="nameLabel">Name:</label><br>
+    <input type="text" id="nameInput" name="name"><br>
+    <label for="companyInput" id="companyLabel">Company:</label><br>
+    <input type="text" id="companyInput" name="company"><br>
+    <label for="emailInput" id="emailLabel">Email:</label><br>
+    <input type="text" id="emailInput" name="email"><br>
+    <label for="telInput" id="telephoneLabel">Telephone:</label><br>
+    <input type="text" id="telInput" name="telephone"><br>
+    <label for="messageInput" id="messageLabel">Message:</label><br>
+    <textarea id="messageInput" name="message"></textarea><br>
+    <button type="submit" class="submit">Submit</button>
+  </form>
+
+  <script>
+    $('.submit').click(function () {
+      validateForm();
+    });
+
+    function validateForm() {
+
+      var nameReg = /^[A-Za-z]+$/;
+      var numberReg = /^[0-9]+$/;
+      var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+      var names = $('#nameInput').val();
+      var company = $('#companyInput').val();
+      var email = $('#emailInput').val();
+      var telephone = $('#telInput').val();
+      var message = $('#messageInput').val();
+
+      var inputVal = new Array(names, company, email, telephone, message);
+
+      var inputMessage = new Array("name", "company", "email address", "telephone number", "message");
+
+      $('.error').hide();
+
+      if (inputVal[0] == "") {
+        $('#nameLabel').after('<span class="error"> Please enter your ' + inputMessage[0] + '</span>');
+      }
+      else if (!nameReg.test(names)) {
+        $('#nameLabel').after('<span class="error"> Letters only</span>');
+      }
+
+      if (inputVal[1] == "") {
+        $('#companyLabel').after('<span class="error"> Please enter your ' + inputMessage[1] + '</span>');
+      }
+
+      if (inputVal[2] == "") {
+        $('#emailLabel').after('<span class="error"> Please enter your ' + inputMessage[2] + '</span>');
+      }
+      else if (!emailReg.test(email)) {
+        $('#emailLabel').after('<span class="error"> Please enter a valid email address</span>');
+      }
+
+      if (inputVal[3] == "") {
+        $('#telephoneLabel').after('<span class="error"> Please enter your ' + inputMessage[3] + '</span>');
+      }
+      else if (!numberReg.test(telephone)) {
+        $('#telephoneLabel').after('<span class="error"> Numbers only</span>');
+      }
+
+      if (inputVal[4] == "") {
+        $('#messageLabel').after('<span class="error"> Please enter your ' + inputMessage[4] + '</span>');
+      }
+    }   
+
+      });
+
+  </script>
+
+</body>
+</html>

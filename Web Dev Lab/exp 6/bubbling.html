@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <h1>This is an implementation of bubbling in JavaScript</h1>
+    <div id="parent">
+      <button>
+        Parent Button
+      </button>
+      <button id="child">
+        Child Button
+      </button>
+    </div>
+
+    <script>
+      document.getElementById("child").addEventListener("click", function() {
+        alert("You clicked child button");
+      });
+
+      document.getElementById("parent").addEventListener("click", function() {
+        alert("Parent button also triggered");
+      });
+    </script>
+  </body>
+</html>

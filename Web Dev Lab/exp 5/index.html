@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <style>
+    .about {
+      width: 200px;
+      height: 200px;
+    }
+
+    /* Form Styles */
+    form {
+      width: 400px;
+      /* Adjust as needed */
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      /* Make labels occupy the entire line */
+      margin-bottom: 5px;
+    }
+
+    input[type="input"],
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      /* Make input fields span the full width */
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+      /* Include padding and border in width */
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+
+  <script>
+    function validate() {
+      var uid = document.forms["register"]["uid"].value;
+      if (uid.length < 5 || uid.length > 12) {
+        alert("ID must be between 5 and 12 characters long.");
+        return false;
+      }
+
+      var pass = document.forms["register"]["pass"].value;
+      if (pass.length < 7 || pass.length > 12) {
+        alert("Password must be between 7 and 12 characters long.");
+        return false;
+      }
+      var name = document.forms["register"]["name"].value;
+      if (!/^[a-zA-Z]+$/.test(name)) {
+        alert("Name must contain only letters.");
+        return false;
+      }
+
+      var countrySelect = document.forms["register"]["country"];
+      if (countrySelect.selectedIndex === 0) {
+        alert("Please select a country.");
+        return false;
+      }
+
+      var zip = document.forms["register"]["zip"].value;
+      if (!/^[0-9]+$/.test(zip) {
+        alert("Name must contain only numbers.");
+        return false;
+      }
+
+      var emailInput = document.forms["register"]["mail"].value;
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      var sexRadios = document.forms["register"]["sex"];
+      if (!sexRadios[0].checked && !sexRadios[1].checked) {
+        alert("Please select a sex.");
+        return false;
+      }
+      var languageCheckboxes = document.forms["register"]["language"];
+      var atLeastOneChecked = false;
+      for (var i = 0; i < languageCheckboxes.length; i++) {
+        if (languageCheckboxes[i].checked) {
+          atLeastOneChecked = true;
+          break;
+        }
+      }
+      if (!atLeastOneChecked) {
+        alert("Please select at least one language.");
+        return false;
+      }
+    }
+  </script>
+
+  <style>
+    .about {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Registration form</h2>
+
+  <form name="register" onsubmit="return validate()">
+    <b>User id</b> <input type="input" name="uid"><br>
+
+    <b>Password</b> <input type="password" name="pass"><br>
+    <b>Name</b> <input type="input" name="name"><br>
+
+    <b>Address</b> <input type="text" name="address"><br>
+
+    <b>Country</b>
+
+    <select name="country">
+      <option value="0">Select a country</option>
+      <option value="USA">United States</option>
+      <option value="Uganda">Uganda</option>
+      <option value="India">India</option>
+    </select><br>
+
+    <b> ZIP code</b> <input type="number" name="zip"><br>
+
+    <b>Email </b><input type="email" name="mail"><br>
+
+    <b>Sex</b> <input type="radio" name="sex">Male <input type="radio" name="sex">Female <br>
+
+    <b>Language </b> <input type="checkbox" name="language">English<input type="checkbox" name="language">
+    Non-English<br><br>
+
+    <b>About</b><br>
+    <input type="text" name="about" class="about"><br>
+    <input type="submit" value="Register" name="register">
+
+  </form>
+</body>
+
+</html>

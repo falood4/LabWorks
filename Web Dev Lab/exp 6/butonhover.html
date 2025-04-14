@@ -1,0 +1,21 @@
+<html>
+
+<body>
+  <button id="button" style=";width: 20%; height: 50px;margin-left: 40%;margin-top: 10%;color:white">
+    Hover on me!
+  </button>
+
+
+  <script>
+    const button = document.getElementById("button");
+    button.addEventListener("mouseover", function () {
+      button.style.backgroundColor = "red";
+    })
+
+    button.addEventListener("mouseout", function () {
+      button.style.backgroundColor = "green";
+    })
+  </script>
+</body>
+
+</html>

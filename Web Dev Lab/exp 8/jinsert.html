@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<body>
+  <script src="jquery-3.7.1.min.js"></script>
+
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    th {
+      border: 1px solid black;
+      padding: 10px;
+      font-family: CEntury Gothic;
+    }
+
+    td {
+      font-family: Verdana;
+      text-align: center;
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+  <table id="table">
+    <tr id="heading">
+      <th>
+        Time
+      </th>
+      <th>
+        Activity
+      </th>
+    </tr>
+    <tr>
+      <td>8:30am</td>
+      <td>Welcome speech</td>
+    </tr>
+    <tr id="aitalk">
+      <td>9:00am</td>
+      <td>Talk on AI</td>
+    </tr>
+    <tr>
+      <td>10:30am</td>
+      <td>Case Study: Nvidia</td>
+    </tr>
+    <tr>
+      <td>11:30am</td>
+      <td>AI and employment</td>
+    </tr>
+    <tr id="l_event">
+      <td>
+        12:30pm
+      </td>
+      <td>Lunch</td>
+    </tr>
+  </table>
+  <button id="jquery">Click to insert new elements</button>
+</body>
+<script>
+  var name = "<h2>Schedule</h2>";
+  var row1 = "<tr><td>8:00am</td><td>Venue opens</td></tr>";
+  var row2 = "<tr><td>2:00pm</td><td>Tech Expo</td></tr>";
+  var row3 = "<tr><td>8:45am</td><td>Welcome Perfomance</td></tr>";
+
+  $("#jquery").click(function () {
+    $("#table").prepend(name);
+    $("#heading").after(row1);
+    $("#l_event").append(row2);
+    $("#aitalk").before(row3);
+  });
+</script>
+
+</html>
